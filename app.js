@@ -8,11 +8,6 @@ app.use(morgan('dev'));
 const purchase = require('./api/controllers/purchase/routes');
 const { instance } = require('./api/controllers/purchase/index');
 
-/*router.get('/', (req,res) => {
-    res.send('Hello, im instance:'+ instance);
-});*/
-
-
 router.use('/purchase',purchase);
 
 app.use(bodyParser.json());
@@ -21,5 +16,5 @@ app.use('/', router);
 
 app.get('/ping', (req, res) => res.send('pong'))
 
-app.listen("400"+instance); //for nodejs load balance
+app.listen("400"+instance);
 console.log("Listining at","400"+instance)

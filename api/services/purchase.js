@@ -15,6 +15,7 @@ const createPurchaseOrder = (purchase, result) => {
 				return;
 			}
 
+			console.log('Orden exitosa con id:' + res.insertId);
 			result(null, { idPurchaseOrder: res.insertId });
 		});
 	});
