@@ -5,11 +5,14 @@ const createPurchaseOrder = (purchase, result) => {
 	sql.query("INSERT INTO purcharseorder SET ?", purchase.purchaseOrder, (err, res) => {
 		if (err) {
 			result(err, null);
+			console.log('Error createPurchaseOrder');
 			return;
 		}
-
-		purchase.orderDetail.order_id = res.insertId;
+		result(null, { idPurchaseOrder: res.insertId });
+		console.log('Orden exitosa con id:' + res.insertId);
+		/*purchase.orderDetail.order_id = res.insertId;
 		sql.query("INSERT INTO orderdetail SET ?", purchase.orderDetail, (err, res) => {
+			//sql.end();
 			if (err) {
 				result(err, null);
 				return;
@@ -17,7 +20,7 @@ const createPurchaseOrder = (purchase, result) => {
 
 			console.log('Orden exitosa con id:' + res.insertId);
 			result(null, { idPurchaseOrder: res.insertId });
-		});
+		});*/
 	});
 }
 

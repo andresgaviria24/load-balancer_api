@@ -7,6 +7,7 @@ var connection = mysql.createConnection({
 	host: process.env.PGHOST,
 	database: process.env.PGDATABASE,
 	password: process.env.PGPASSWORD,
+	setImmediate: 10000000
 });
 
 module.exports = connection;
